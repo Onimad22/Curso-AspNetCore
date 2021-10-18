@@ -17,9 +17,11 @@ namespace practica_dos.Controllers
             amigoAlmacen = AmigoAlmacen;
         }
 
-        public string Index()
+        public ViewResult Index()
         {
-            return amigoAlmacen.dameDatosAmigo(1).Email;
+            var modelo = amigoAlmacen.DameTodosAmigos();
+            
+            return View(modelo);
         }
 
 

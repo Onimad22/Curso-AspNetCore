@@ -1,5 +1,29 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model List<practica_dos.Models.Amigo>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Ciudad</th>
+        </tr>
+        <tr>
+            @foreach (var amigo in Model)
+            {
+            <tr>
+                <td>@amigo.Id</td>
+                <td>@amigo.Nombre</td>
+                <td>@amigo.Email</td>
+                <td>@amigo.Ciudad</td>
+            </tr>
+
+        }
+            </tr>
+        </table>
+</body>
+</html>

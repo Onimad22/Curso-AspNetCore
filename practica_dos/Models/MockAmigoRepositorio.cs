@@ -24,5 +24,10 @@ namespace practica_dos.Models
         {
            return amigosLista.FirstOrDefault(e => e.Id==Id);
         }
+
+        public List<Amigo> DameTodosAmigos()
+        {
+            return amigosLista;
+        }
     }
 }
