@@ -1,0 +1,50 @@
+﻿@model practica_dos.Models.Amigo
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+    <h3>@ViewData["Cabecera"]</h3>
+    @{
+        var modelo = ViewData["Amigo"] as practica_dos.Models.Amigo;
+    }
+
+    <div>
+        Nombre: @modelo.Nombre
+    </div>
+    <div>
+        Mail: @modelo.Email
+    </div>
+    <div>
+        Ciudad: @modelo.Ciudad
+    </div>
+
+
+    <h3>@ViewBag.Titulo</h3>
+
+    <div>
+        Nombre: @ViewBag.Amigo.Nombre
+    </div>
+    <div>
+        Mail: @ViewBag.Amigo.Email
+    </div>
+    <div>
+        Ciudad: @ViewBag.Amigo.Ciudad
+    </div>
+
+
+    <h3>Fuertemente Tipado</h3>
+
+    <div>
+        Nombre: @Model.Nombre
+    </div>
+    <div>
+        Mail: @Model.Email
+    </div>
+    <div>
+        Ciudad: @Model.Ciudad
+    </div>
+
+</body>
+</html>
