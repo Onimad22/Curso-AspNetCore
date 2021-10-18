@@ -26,19 +26,13 @@ namespace practica_dos.Controllers
         public ViewResult Details()
         {
 
-            //ACA DEFINO UN OBJETO AL QUE LLAMO "modelo" DE TIPO "Amigo" QUE CONTIENE EL RETORNO DEL
-            //PROCEDIMIENTO "dameDatosAmigo" AL QUE LE PASO LA VARIABLE "Id" EN ESTE CASO EL "Id=1"
-            Amigo modelo = amigoAlmacen.dameDatosAmigo(1);
+            //ACA DEFINO UN OBJETO AL QUE LLAMO "modelo" DE TIPO "DetailsView" 
+            
+            DetailsView modelo = new DetailsView();
 
-            //ACA DEFINO UN "ViewData" DE NOMBRE "Cabecera"(ES EL IDENTIFICADOR) Y LE ASIGNO UN STRING
-            //AL SEGUNDO LE ASIGNO EL NOMBRE DE "Amigo" Y LE ASIGNO EL OBJETO  "modelo" DE TIPO "Amigo"
-            ViewData["Cabecera"] = "Lista Amigos ViewData";
-            ViewData["Amigo"] = modelo;
-
-            //ACA DEFINO UN "ViewBag" DE NOMBRE "Titulo"(ES EL IDENTIFICADOR) Y LE ASIGNO UN STRING
-            //AL SEGUNDO LE ASIGNO EL NOMBRE DE "Amigo" Y LE ASIGNO EL OBJETO "modelo" DE TIPO "Amigo"
-            ViewBag.Titulo = "Lista amigos ViewBag";
-            ViewBag.Amigo = modelo;
+            modelo.amigo = amigoAlmacen.dameDatosAmigo(1);
+            modelo.titulo = "Titulo viewModels";
+            modelo.subTitulo = "Subtitulo";
 
             //ACA ESTOY ENVIANDOLE COMO PARAMETRO A LA VISTA "Details" EL OBJETO  "modelo" DE TIPO "Amigo"
             return View(modelo);
