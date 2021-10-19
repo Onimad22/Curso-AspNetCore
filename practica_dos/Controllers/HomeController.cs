@@ -40,10 +40,23 @@ namespace practica_dos.Controllers
             return View(modelo);
         }
 
+        [HttpGet]
         public ViewResult Create()
         {
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Create(Amigo modelo)
+        {
+            if (ModelState.IsValid)
+            {
+                Amigo amigo = amigoAlmacen.nuevo(modelo);
+                return RedirectToAction("Details", new { id = amigo.Id });
+            }
+
+            return View();
+
+        }
     }
 }

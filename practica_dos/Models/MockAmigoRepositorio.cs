@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace practica_dos.Models
 {
-    public class MockAmigoRepositorio : IAmigoAlmacen 
+    public class MockAmigoRepositorio : IAmigoAlmacen
     {
         private List<Amigo> amigosLista;
 
@@ -22,7 +20,7 @@ namespace practica_dos.Models
 
         public Amigo dameDatosAmigo(int Id)
         {
-           return amigosLista.FirstOrDefault(e => e.Id==Id);
+            return amigosLista.FirstOrDefault(e => e.Id == Id);
         }
 
         public List<Amigo> DameTodosAmigos()
@@ -30,9 +28,14 @@ namespace practica_dos.Models
             return amigosLista;
         }
 
+
         public Amigo nuevo(Amigo amigo)
         {
-            throw new NotImplementedException();
+            amigo.Id = amigosLista.Max(a => a.Id) + 1;
+            amigosLista.Add(amigo);
+            return amigo;
         }
+
+
     }
 }
