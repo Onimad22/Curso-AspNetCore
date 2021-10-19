@@ -5,12 +5,8 @@ using System.Threading.Tasks;
 
 namespace practica_dos.Models
 {
-   public interface IAmigoAlmacen
+    public enum Province
     {
-        Amigo dameDatosAmigo(int Id);
-
-        List<Amigo> DameTodosAmigos();
-
-        Amigo nuevo(Amigo amigo);
+        Ninguna, BuenosAires, Salta, Tucuman, Jujuy, Cordoba, Catamarca, Corrientes
     }
 }

@@ -12,9 +12,9 @@ namespace practica_dos.Models
         public MockAmigoRepositorio()
         {
             amigosLista = new List<Amigo>();
-            amigosLista.Add(new Amigo { Id = 1, Nombre = "Marcos", Ciudad = "Camapana", Email = "algo@mail" });
-            amigosLista.Add(new Amigo { Id = 2, Nombre = "Angel", Ciudad = "Zarate", Email = "nuevo@mail" });
-            amigosLista.Add(new Amigo { Id = 3, Nombre = "Jose", Ciudad = "Balcon 2", Email = "jose@mail" });
+            amigosLista.Add(new Amigo { Id = 1, Nombre = "Marcos", Ciudad = Province.BuenosAires, Email = "algo@mail" });
+            amigosLista.Add(new Amigo { Id = 2, Nombre = "Angel", Ciudad = Province.Catamarca, Email = "nuevo@mail" });
+            amigosLista.Add(new Amigo { Id = 3, Nombre = "Jose", Ciudad = Province.Jujuy, Email = "jose@mail" });
 
         }
 
@@ -28,6 +28,11 @@ namespace practica_dos.Models
         public List<Amigo> DameTodosAmigos()
         {
             return amigosLista;
+        }
+
+        public Amigo nuevo(Amigo amigo)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -40,7 +40,10 @@ namespace practica_dos.Controllers
             return View(modelo);
         }
 
-
+        public ViewResult Create()
+        {
+            return View();
+        }
 
     }
 }
