@@ -12,5 +12,9 @@ namespace practica_dos.Models
         List<Amigo> DameTodosAmigos();
 
         Amigo nuevo(Amigo amigo);
+
+        Amigo modificar(Amigo modifAmigo);
+
+        Amigo borrar(int id); 
     }
 }

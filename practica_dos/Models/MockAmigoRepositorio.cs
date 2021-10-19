@@ -16,7 +16,15 @@ namespace practica_dos.Models
 
         }
 
-
+        public Amigo borrar(int id)
+        {
+            Amigo amigo = amigosLista.FirstOrDefault(e => e.Id == id);
+            if (amigo!=null)
+            {
+                amigosLista.Remove(amigo);
+            }
+            return amigo;
+        }
 
         public Amigo dameDatosAmigo(int Id)
         {
@@ -28,6 +36,17 @@ namespace practica_dos.Models
             return amigosLista;
         }
 
+        public Amigo modificar(Amigo modifAmigo)
+        {
+            Amigo amigo = amigosLista.FirstOrDefault(e => e.Id == modifAmigo.Id);
+            if (amigo != null)
+            {
+                amigo.Nombre = modifAmigo.Nombre;
+                amigo.Email = modifAmigo.Email;
+                amigo.Ciudad = modifAmigo.Ciudad;
+            }
+            return amigo;
+        }
 
         public Amigo nuevo(Amigo amigo)
         {
