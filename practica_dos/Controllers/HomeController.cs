@@ -25,14 +25,14 @@ namespace practica_dos.Controllers
         }
 
 
-        public ViewResult Details()
+        public ViewResult Details(int? id)
         {
 
             //ACA DEFINO UN OBJETO AL QUE LLAMO "modelo" DE TIPO "DetailsView" 
             
             DetailsView modelo = new DetailsView();
 
-            modelo.amigo = amigoAlmacen.dameDatosAmigo(1);
+            modelo.amigo = amigoAlmacen.dameDatosAmigo(id?? 3);
             modelo.titulo = "Titulo viewModels";
             modelo.subTitulo = "Subtitulo";
 
