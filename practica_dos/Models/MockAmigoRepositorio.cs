@@ -5,7 +5,7 @@ namespace practica_dos.Models
 {
     public class MockAmigoRepositorio : IAmigoAlmacen
     {
-        private List<Amigo> amigosLista;
+        private readonly List<Amigo> amigosLista;
 
         public MockAmigoRepositorio()
         {
