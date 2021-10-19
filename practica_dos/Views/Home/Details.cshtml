@@ -1,27 +1,28 @@
 ﻿@model practica_dos.ViewModels.DetailsView
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
-</head>
-<body>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Details";
+}
 
-    <h3>@Model.titulo</h3>
+<h3>@Model.titulo</h3>
 
-    <div>
-        @Model.subTitulo
-    </div>
+<div>
+    @Model.subTitulo
+</div>
 
-    <div>
-        Nombre:@Model.amigo.Nombre
-    </div>
+<div>
+    Nombre:@Model.amigo.Nombre
+</div>
 
-    <div>
-        Email:@Model.amigo.Email
-    </div>
+<div>
+    Email:@Model.amigo.Email
+</div>
 
-    <div>
-        Ciudad:@Model.amigo.Ciudad
-    </div>
+<div>
+    Ciudad:@Model.amigo.Ciudad
+</div>
 
-</body>
-</html>
+@section Scripts
+    {
+    <script src="~/js/MyScript.js"></script>
+}
