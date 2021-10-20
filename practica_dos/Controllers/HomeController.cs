@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using practica_dos.Models;
 using practica_dos.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,6 +12,7 @@ namespace practica_dos.Controllers
 {
     public class HomeController:Controller
     {
+        
         private IAmigoAlmacen amigoAlmacen;
 
         public HomeController(IAmigoAlmacen AmigoAlmacen )
@@ -47,12 +50,27 @@ namespace practica_dos.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Amigo modelo)
+        public IActionResult Create(CreateAmigoModel modelo)
         {
             if (ModelState.IsValid)
             {
-                Amigo amigo = amigoAlmacen.nuevo(modelo);
-                return RedirectToAction("Details", new { id = amigo.Id });
+                string guidImagen = null;
+                if (modelo.Foto!=null)
+                {
+                    string ficherosImagen = Path.Combine(Directory.GetCurrentDirectory(),
+                "wwwroot\\images\\");
+                    guidImagen = Guid.NewGuid().ToString() + modelo.Foto.FileName;
+                    string rutaDefinitiva = Path.Combine(ficherosImagen + guidImagen);
+                    modelo.Foto.CopyTo(new FileStream(rutaDefinitiva, FileMode.Create));
+                }
+                Amigo nuevoAmigo = new Amigo();
+                nuevoAmigo.Nombre = modelo.Nombre;
+                nuevoAmigo.Email = modelo.Email;
+                nuevoAmigo.Ciudad = modelo.Ciudad;
+                nuevoAmigo.rutaFoto = guidImagen;
+
+                amigoAlmacen.nuevo(nuevoAmigo);
+                return RedirectToAction("Details", new { id = nuevoAmigo.Id });
             }
 
             return View();

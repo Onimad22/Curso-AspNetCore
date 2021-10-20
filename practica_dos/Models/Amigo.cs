@@ -20,5 +20,7 @@ namespace practica_dos.Models
 
         [Required(ErrorMessage ="Debe seleccionar una provincia")]
         public Province? Ciudad { get; set; }
+
+        public string rutaFoto { get; set; }
     }
 }

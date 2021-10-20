@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using practica_dos.Controllers;
 using practica_dos.Models;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,7 @@ namespace practica_dos
             services.AddControllersWithViews();
             //services.AddSingleton<IAmigoAlmacen, MockAmigoRepositorio>();
             services.AddScoped<IAmigoAlmacen, SqlAmigoRepositorio>();
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

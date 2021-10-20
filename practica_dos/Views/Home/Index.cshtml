@@ -1,20 +1,31 @@
 ﻿@model List<Amigo>
 
+
+
 @{
-   
+
     ViewData["Title"] = "Index";
+
+   
+
 }
 <div class="row row-cols-1 row-cols-md-3">
 
     @foreach (var amigo in Model)
-     {
+
+    {
+        //EL OPERADOR DE USO COMBINADO NULL ?? DEVUELVE EL VALOR DEL OPERANDO IZQUIERDO SI NO ES NULL
+        //EN CASO CONTRARIO EVALUA EL OPERANDO DERECHO Y DEVULVE SU RESULTADO
+        //TRADUCIDO= SI NO ENCUANTRA UNA IMAGEN EN LA RUTA DEFINIDA, ENTONCES MUESTRA UNA FOTO POR DEFAULT
+        var rutaFoto = "~/images/" + (amigo.rutaFoto ?? "6_logo.jpg");
+
         <div class="col">
             <div class="card m-3">
                 <div class="card-header text-center">
                     <h3>@amigo.Nombre</h3>
                 </div>
 
-                <img class="card-img-top" src="~/images/6_logo.jpg" asp-append-version="true" />
+                <img class="card-img-top" src="@rutaFoto" asp-append-version="true" />
 
                 <div class="card-footer text-center">
                     <a asp-controller="Home" asp-action="Details" asp-route-id="@amigo.Id" class="btn btn-primary">ver</a>
